@@ -17,9 +17,6 @@ public:
                 high = piles[i];
             }
         }
-        for (int i = 1; i <= 30; i++) {
-            cout << solve(piles, h, i) << endl;
-        }
         while (low <= high) {
             int mid = low + (high - low) / 2;
             if (solve(piles, h, mid)) {
