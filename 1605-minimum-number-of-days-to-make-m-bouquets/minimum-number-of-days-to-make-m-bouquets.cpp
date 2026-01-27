@@ -1,17 +1,17 @@
 class Solution {
 public:
-    bool solve(vector<int>& bloomDay, int m, int k, int days) {
+    bool check(vector<int>& bloomDay, int m, int k, int days) {
         int n = bloomDay.size();
-        int flowersReq = k;
-        int bouquetsReq = m;
+        if (n < m * 1LL * k) return false;
+        int flowers = k;
         for (int i = 0; i < n; i++) {
-            if (bloomDay[i] <= days) flowersReq--;
-            else flowersReq = k;
-            if (flowersReq == 0) {
-                bouquetsReq--;
-                flowersReq = k;
+            if (bloomDay[i] <= days) flowers--;
+            else flowers = k;
+            if (flowers == 0) {
+                m--;
+                flowers = k;
             }
-            if (bouquetsReq == 0) return true;
+            if (m == 0) return true;
         }
         return false;
     }
@@ -23,7 +23,7 @@ public:
         }
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (solve(bloomDay, m, k, mid)) {
+            if (check(bloomDay, m, k, mid)) {
                 ans = mid;
                 high = mid - 1;
             } else low = mid + 1;
