@@ -12,12 +12,12 @@ public:
     int maximumCandies(vector<int>& candies, long long k) {
         int n = candies.size();
         int low = 1, high = 1, ans = 0;
-        long long sum = 0;
+        // long long sum = 0;
         for (int i = 0; i < n; i++) {
             if (candies[i] > high) high = candies[i];
-            sum += candies[i];
+            // sum += candies[i];
         }
-        if (sum < k) return 0;
+        // if (sum < k) return 0;
         while (low <= high) {
             int mid = low + (high - low) / 2;
             if (check(candies, k, mid)) {
