@@ -10,14 +10,13 @@ public:
                     nums[i] = nums[j];
                     i++;
                 }
-                j++;
                 cnt++;
             } else {
                 nums[i] = nums[j];
                 i++;
-                j++;
                 cnt = 1;
             }
+            j++;
         }
         return i;
     }
